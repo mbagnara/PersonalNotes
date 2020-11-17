@@ -86,3 +86,40 @@ FAQ document to use GIT and GITHUB repositories
         ...check status: git status
     $ git commit -m "New Change"
     $ git push -u origin parents
+
+
+# How to unstage changes, not YET COMMITTED
+
+    $ git restore --staged <file>
+
+    Example:
+    .. vi/make changes to the file <file> to push to the remote branch repository
+    $ git add example_file.txt
+
+    .. The <file> has not yet been committed
+
+    $ git restore --staged example_file.txt
+
+
+# How to remove cached (committed) changes
+
+    $ git rm --cached file.conf
+
+
+    Ref:
+    https://devconnected.com/how-to-clear-git-cache/
+
+# How to UNCOMMIT changes made to the local repository, not yet PUSHED to github or any other remote repo.
+
+    $ git reset -soft
+
+    Once a staged file is committed, it is incorporated into Git history.
+    This will transfer the relevant files from Git History to the Git Working Directory (as staged files).
+    Ref: https://ohi-science.org/news/github-going-back-in-time
+
+    Example:
+
+    $ git add example_file.txt
+    $ git commit -m "New changes to the file"
+        .. Once a staged file is committed, it is incorporated into Git history.
+    $ git reset --soft
