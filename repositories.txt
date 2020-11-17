@@ -1,0 +1,70 @@
+############################################################################################################
+OBJECTIVE:
+
+FAQ document to use GIT and GITHUB repositories
+############################################################################################################
+
+# Code example to create local and connect it to remote github repository
+
+    echo "# test" >> README.md
+    git init
+    git add README.md
+    git commit -m "first commit"
+    git branch -M master
+    git remote add remote_repo https://github.com/mbagnara/test.git
+    git push -u remote_repor master
+
+    The two last lines use remote_repo as the alias to use locally to reference the remote repo.
+    The defaul name is origin as below, but you can use whatever name:
+
+    git remote add origin https://github.com/mbagnara/test.git
+    git push -u origin master
+
+# How to rename/remove remote repository
+    Ref: https://git-scm.com/docs/git-remote
+
+    $ git remote rename <old> <new>
+    $ git remote remove <name>
+
+    Example:
+
+    MBAGNARA@MBAGNARA-US MINGW64 ~/git/test (master)
+    $ git remote rename remote_repo new_repo_name
+
+# How to get a list of remote github repositories
+    $ get remote [-v]
+
+    Example:
+
+    MBAGNARA@MBAGNARA-US MINGW64 ~/git/test (master)
+    $ git remote -v
+    new_repo_name   https://github.com/mbagnara/test.git (fetch)
+    new_repo_name   https://github.com/mbagnara/test.git (push)
+
+
+# How to check committed changes
+
+    $ git show [filename]
+
+    Example:
+
+    $ git show file1.txt
+    commit ef57ebc3ab0fcca7d58084d8e167dda8a7570471 (HEAD -> master, origin/master)
+    Author: mariobagnara <mbagnara@gmail.com>
+    Date:   Tue Nov 17 13:06:43 2020 -0700
+
+        Minor Change
+
+    diff --git a/file1.txt b/file1.txt
+    index dd274a6..f6fd27e 100644
+    --- a/file1.txt
+    +++ b/file1.txt
+    @@ -3,6 +3,6 @@ Katherine Bravo
+     Bastian Bagnara
+     Francisca Bagnara
+
+    -Parents:
+    +Mario's Parents:
+     Raul Riveros
+
+
