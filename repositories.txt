@@ -68,3 +68,21 @@ FAQ document to use GIT and GITHUB repositories
      Raul Riveros
 
 
+# How to view all commits for a file:
+
+    Click "Code" (left-most tab) on the main page for the repository. Under those 4 buttons ("master", "Go to file", "Add file", "Code") there is a blue rectangle. At the right end of that is a clock icon and a number. If the viewport of your browser is wide enough it even includes (hurrah) the word "commits". This is a link. Click and ENJOY!!!
+
+    Ref: https://stackoverflow.com/questions/33926874/in-github-is-there-a-way-to-see-all-recent-commits-on-all-branches
+
+
+# How to create a new branch off master
+
+    git checkout -b <branch_name>
+
+    Example:
+    $ git checkout -b parents
+      .. vi/make changes to the file <file> to push to the remote branch repository (parents)
+    $ git add <file>
+        ...check status: git status
+    $ git commit -m "New Change"
+    $ git push -u origin parents
