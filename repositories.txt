@@ -4,7 +4,7 @@ OBJECTIVE:
 FAQ document to use GIT and GITHUB repositories
 ############################################################################################################
 
-# Code example to create local and connect it to remote github repository
+# Code example to create a local repository and connect it to remote github repository
 
     echo "# test" >> README.md
     git init
