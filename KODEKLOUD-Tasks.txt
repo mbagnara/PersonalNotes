@@ -1,0 +1,26 @@
+https://kodekloud-engineer.com/#!/tasks
+
+TASKS
+=========
+Date: 11/20/2020:
+
+- Create a Linux User with non-interactive shell
+
+  The /etc/passwd file has as the last item on a user's line the program to be run upon login. For normal users this is typically set to /bin/sh or other shell (e.g. bash, zsh).
+
+  Ref: https://unix.stackexchange.com/questions/4676/creating-a-user-who-cannot-get-an-interactive-shell
+
+  Example:
+  $ sudo useradd username
+  $ sudo passwd new_passwd
+
+  When executed without any option, useradd creates a new user account using the default settings specified in the /etc/default/useradd file.
+
+  The command adds an entry to the files:
+    /etc/passwd,  <--- set /bash/shell to /bash/false
+    /etc/shadow,
+    /etc/group and
+    /etc/gshadow
+
+  Ref: https://linuxize.com/post/how-to-create-users-in-linux-using-the-useradd-command/
+

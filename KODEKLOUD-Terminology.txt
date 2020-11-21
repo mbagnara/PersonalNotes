@@ -1,0 +1,16 @@
+TERMINOLOGY
+===============
+
+Bastion host/Jump box
+-----------------------
+
+Bastion Hosts. Both bastion hosts and jumpboxes function similarly: they segregate between one private network or server group and external traffic. Usually you connect to them through SSH or RDP. ... A jump server is a “bridge” between two trusted networks. The two security zones are dissimilar but both are controlled
+
+A bastion host is a server whose purpose is to provide access to a private network from an external network, such as the Internet. Because of its exposure to potential attack, a bastion host must minimize the chances of penetration.
+
+Ref: https://aws.amazon.com/blogs/security/tag/bastion-host/
+
+
+A jump server, jump host or jump box is a system on a network used to access and manage devices in a separate security zone. A jump server is a hardened and monitored device that spans two dissimilar security zones and provides a controlled means of access between them.
+
+Ref: https://en.wikipedia.org/wiki/Jump_server

@@ -1,0 +1,66 @@
+OBJECTIVE
+=================
+I need to focus on the learning path I started a few weeks ago. I cant deviate from it. If I try to learn new things (eg Math for ML), I will get overwhelmed and I wont be able to complete the first phase of my training that is to become fluent on Python, IDEs, git/github.
+
+My focus has to be to gain experience using the above technlogies and build up a portfolio I can show off. The Python Master course I am taking contains 4 different projects that will help me build the muscle for Technical Interviews. I need to master the fundamentals and build on top of that:
+
+Technologies:
+
+Python 3.x -- WIP
+Git and Github -- WIP
+IDEs: Sublime Text 2 (WIP), Pycharm (WIP) and/or Visual Studio Code (Not Started)
+
+Other language(s) to learn:
+Java?
+Javascript?
+
+Along with the above, I need to learn how to deploy applications using CI/CD pipelines. Other related technologies are:
+
+Docker/Kubernetes
+Jenkins/Ansible
+
+With the above, I will be able to understand the fundamantals of new deployment methodologies and catch up with the new trend.
+
+TO DO List:
+=============
+to start taking notes of everything new thing I learn using the above technologies to show the path I am building for myself and use during interviews.
+
+DEVOPS
+---------
+    Perform the kodekloud Engineer training program:
+
+        https://kodekloud-engineer.com/#!/tasks
+        community.kodekloud.com
+
+        Keep notes of every activity assigned and completed, and what I did to have it done in time.
+
+        When to do:
+        -------------
+        Use one hour during working hours at Oracle to progress.
+
+PYTHON
+-----------
+    Codesignal.
+
+        Use codesignal.com to gain mastery on different Python concepts
+            - Do 2-5 exercises per week
+
+    Complete the Python Masters course
+
+        Do the 4 projects.
+        Use git/github
+
+        When to do:
+        -------------
+
+WEB TECHNOLOGIES
+------------------
+    Take an introductory course on Javascript, HTML, and CSS
+    Find a few hours course.
+
+        Use one hour at nights
+
+    Complete the ML/IA Training
+
+        Start once the "Python Masters course" is completed
+
