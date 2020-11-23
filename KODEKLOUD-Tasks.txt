@@ -1,8 +1,8 @@
 https://kodekloud-engineer.com/#!/tasks
 
-TASKS
-=========
-Date: 11/20/2020:
+TASK 2:
+===========
+Start Date: 11/20/2020:
 
 - Create a Linux User with non-interactive shell
 
@@ -24,3 +24,42 @@ Date: 11/20/2020:
 
   Ref: https://linuxize.com/post/how-to-create-users-in-linux-using-the-useradd-command/
 
+
+TASK 2:
+===========
+Start date: 11/22/2020
+
+For security reasons the xFusionCorp Industries security team has decided to use custom Apache users for each web application hosted, rather than its default user. This will be theApache user, so it shouldn't use the default home directory. Create the user as per requirements given below:
+
+a. Create a user named ammar on the App server 1 in Stratos Datacenter.
+b. Set UID to 1116 and its home directory to /var/www/ammar.
+
+  $ ssh tony@stapp01.stratos.xfusioncorp.com
+
+  $ cat /etc/hosts
+  172.16.238.10   stapp01
+
+  $ ssh tony@stapp01
+
+  $ sudo useradd ammar
+  $ sudo passwd ammar
+  $ sudo usermod -u 1116 ammar  # change user id
+
+    Ref: Reg: https://www.cyberciti.biz/faq/linux-change-user-group-uid-gid-for-all-owned-files/
+
+  $ sudo usermod -d /var/www/ammar ammar
+
+    Re: https://stackoverflow.com/questions/20797819/command-to-change-the-default-home-directory-of-a-user
+
+
+  Server Information:
+  ---------------------
+  Server name:stapp01
+  IP: 172.16.238.10
+  Hostname: stapp01.stratos.xfusioncorp.com
+  User: tony
+  Password: Ir0nM@n
+  Purpose: Nautilus App 1
+
+Understanding /etc/passwd File Format
+Ref: https://www.cyberciti.biz/faq/understanding-etcpasswd-file-format/
