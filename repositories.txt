@@ -7,6 +7,7 @@ FAQ document to use GIT and GITHUB repositories
 Documentation:
 https://docs.docker.com/get-started/
 https://docs.docker.com/docker-for-windows/wsl/
+https://www.freecodecamp.org/news/vim-windows-install-powershell/
 
 # Code example to create a local repository and connect it to remote github repository
 
