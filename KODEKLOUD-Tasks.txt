@@ -104,12 +104,18 @@ haproxy.service   enabled
 
 Ref: https://unix.stackexchange.com/questions/158494/the-name-org-freedesktop-policykit1-was-not-provided-by-any-service-files
 
-Missed to bring back the service
+Failed the test because I missed to bring back the service:
 
 $ sudo systemctl start haproxy
 
-The complete fix should have been
+The complete fix should have been:
 $ sudo systemctl enable haproxy
 $ sudo systemctl start haproxy
+
+Symlinks:
+-----------
+A symlink (also called a symbolic link) is a type of file in Linux that points to another file or a folder on your computer. Symlinks are similar to shortcuts in Windows.
+
+Ref: https://www.freecodecamp.org/news/symlink-tutorial-in-linux-how-to-create-and-remove-a-symbolic-link/
 
 
