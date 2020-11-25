@@ -4,6 +4,8 @@ OBJECTIVE:
 FAQ document to use GIT and GITHUB repositories
 ############################################################################################################
 
+Ref: https://docs.docker.com/get-started/
+
 # Code example to create a local repository and connect it to remote github repository
 
     echo "# test" >> README.md
