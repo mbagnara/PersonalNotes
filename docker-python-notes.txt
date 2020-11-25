@@ -1,0 +1,141 @@
+BASIC FLASK PY PROGRAM
+=========================
+
+- WebApp:
+-------------
+    simple-webapp-flask/app.py
+    ------------------------------
+import os
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route("/")
+def main():
+    return "Welcome!"
+
+
+@app.route('/How Are You')
+def hello():
+    return "I am good!!"
+
+
+if __name__ == "__main__":
+    app.run()
+
+How to manually install Python and Run the Application
+--------------------------------------------------------
+
+    docker run -it -p 8081:5000 python:3 bash   # Flask runs on port 5000 by default
+    apt update
+    pip install flask
+    pip install flask-mysql
+    # Create /opt/app.py file. app.py code is above under "BASIC FLASK PY PROGRAM"
+    FLASK_APP=/opt/app.py flask run --host=0.0.0.0
+
+    1. Get Python image.
+
+        - Get Python dockerized image
+        docker run -it -p 8081:5000 python:3 bash
+
+    2. Install and configure Web Server
+
+        - Update the OS
+        apt update
+        apt upgrade -y
+
+        - Install and configure Web Server
+        pip install flask
+        pip install flask-mysql
+
+    3. Start Web Server
+
+        FLASK_APP=app.py flask run --host=0.0.0.0
+
+    4. Test
+
+        http://<IP>:5000
+        http://<IP>:5000/HowAreyou?
+
+How to create a Docker File
+-------------------------------
+
+These instructions resemble the manual steps used in the previous section
+
+    1. Create a Dockerfile
+
+        FROM python:3
+
+        RUN apt update
+        RUN apt upgrade -y
+
+        RUN pip install flask
+        RUN pip install flask-mysql
+
+        COPY app.py /opt
+
+        ENTRYPOINT FLASK_APP=/opt/app.py flask run
+
+    2. Build the image
+
+        $ docker build . -t mywebapp    # -t stands for tag
+
+    3. Push to the Docker Hub
+
+        $ docker push mmunshd/my-custom-app
+
+
+DOCKERIZE UBUNTU SERVER WITH PYTHON
+------------------------------------
+$ docker run -it ubuntu
+$ apt-get update
+$ apg-get install python
+
+- Find where Python is installed
+root@2c08bf889a2b:/usr/local/bin# whereis python
+python: /usr/bin/python3.8 /usr/lib/python3.8 /etc/python3.8 /usr/local/lib/python3.8
+
+- Configure $ PATH
+$ export PATH=/usr/bin/python3.8:$PATH
+$ python3.8 -V
+
+Notes:
+-------------
+https://www.digitalocean.com/community/tutorials/how-to-install-python-3-and-set-up-a-local-programming-environment-on-ubuntu-16-04
+
+https://www.digitalocean.com/community/tutorials/how-to-install-python-3-and-set-up-a-programming-environment-on-an-ubuntu-20-04-server
+
+https://www.tutorialspoint.com/python/python_environment.htm
+
+
+ERRORS
+===========
+
+- Error1: Docker fails on Git Bash:
+-------------------------------------------
+
+ERROR:
+---------
+    MBAGNARA@MBAGNARA-US MINGW64 ~/git/personal (master)
+    $ docker run -it ubuntu
+    the input device is not a TTY.  If you are using mintty, try prefixing the command with 'winpty'
+
+FIX:
+---------
+
+    As suggested by the error message you obtain, you should try to use winpty (which is installed by default with Git-Bash) and thus run:
+
+    $ winpty docker run -it ubuntu
+
+    - How to set a Bash alias to avoid manually prepending winpty all the time:
+    $ echo "alias docker='winpty docker'" >> ~/.bashrc
+
+    or you can set it up every time: $ alias docker='winpty docker'
+
+    Ref: https://stackoverflow.com/questions/48623005/docker-error-the-input-device-is-not-a-tty-if-you-are-using-mintty-try-prefi
+
+What is winpty?
+------------------
+    winpty is a Windows software package providing an interface similar to a Unix pty-master for communicating with Windows console programs. The package consists of a library (libwinpty) and a tool for Cygwin and MSYS for running Windows console programs in a Cygwin/MSYS pty.
+
+    Ref: https://github.com/rprichard/winpty/blob/master/README.md
