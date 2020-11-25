@@ -63,3 +63,53 @@ b. Set UID to 1116 and its home directory to /var/www/ammar.
 
 Understanding /etc/passwd File Format
 Ref: https://www.cyberciti.biz/faq/understanding-etcpasswd-file-format/
+
+TASK 3:
+===========
+
+xFusionCorp Industries has an application running on Nautlitus infrastructure in Stratos Datacenter. The monitoring tool recognised that there is an issue with the haproxy service on LBR server. That needs to fixed to make the application work properly.
+
+Troubleshoot and fix the issue, and make sure haproxy service is running on Nautilus LBR server.
+
+How to check running process in Linux using command line
+$ ps -aux
+$ sudo ps -a
+
+Ref: https://www.cyberciti.biz/faq/how-to-check-running-process-in-linux-using-command-line/
+
+$ systemctl status haproxy
+Loaded: loaded (/usr/lib/systemd/system/haproxy.service; disabled; vendor preset: disabled)
+Active: inactive (dead)
+
+$ systemctl is-enable haproxy
+disabled
+
+$ systemctl list-unit-files | grep haproxy
+disabled
+
+Ref: https://linoxide.com/linux-command/how-to-list-services-in-linux/
+
+FIX:
+----------
+Enable the service using sudo. Otherwise, the fix will not work.
+
+$ sudo systemctl enable haproxy
+Created symlink from /etc/systemd/system/multi-user.target.wants/haproxy.service to /usr/lib/systemd/system/haproxy.service
+
+  - Cause: service was disabled and the symlink to the service was removed.
+  - Justification: Running systemctl disable removes the symlink to the service in /etc/systemd/system/*. From now on, that service won’t start on boot anymore. Ref: https://ma.ttias.be/enable-disable-service-at-boot-on-centos-7/
+
+$ systemctl list-unit-files | grep haproxy
+haproxy.service   enabled
+
+Ref: https://unix.stackexchange.com/questions/158494/the-name-org-freedesktop-policykit1-was-not-provided-by-any-service-files
+
+Missed to bring back the service
+
+$ sudo systemctl start haproxy
+
+The complete fix should have been
+$ sudo systemctl enable haproxy
+$ sudo systemctl start haproxy
+
+
