@@ -97,14 +97,14 @@ $ sudo systemctl enable haproxy
 Created symlink from /etc/systemd/system/multi-user.target.wants/haproxy.service to /usr/lib/systemd/system/haproxy.service
 
   - Cause: service was disabled and the symlink to the service was removed.
-  - Justification: Running systemctl disable removes the symlink to the service in /etc/systemd/system/*. From now on, that service won’t start on boot anymore. Ref: https://ma.ttias.be/enable-disable-service-at-boot-on-centos-7/
+  - Justification: Running "systemctl disable" removes the symlink to the service in /etc/systemd/system/*. From now on, that service won’t start on boot anymore. Ref: https://ma.ttias.be/enable-disable-service-at-boot-on-centos-7/
 
 $ systemctl list-unit-files | grep haproxy
 haproxy.service   enabled
 
 Ref: https://unix.stackexchange.com/questions/158494/the-name-org-freedesktop-policykit1-was-not-provided-by-any-service-files
 
-Failed the test because I missed to bring back the service:
+Failed the test because I missed to bring back up the service:
 
 $ sudo systemctl start haproxy
 
@@ -119,3 +119,35 @@ A symlink (also called a symbolic link) is a type of file in Linux that points t
 Ref: https://www.freecodecamp.org/news/symlink-tutorial-in-linux-how-to-create-and-remove-a-symbolic-link/
 
 
+TASK 4:
+===========
+
+On Nautilus storage server in Stratos DC there is a storage location /data which is used by different developers to keep their data (no confidential data). One of the developers mariyam has raised a ticket and asked for a copy of his/her data present in /data/mariyam directory on storage server. /home is an FTP location on storage server where developers can download their data. Below are the instructions shared by the system admin team to accomplish the task:
+
+a. Make a mariyam.tar.gz compressed archive of /data/mariyam directory and move the archive to /home directory on Storage Server
+
+Storage server:
+
+  Server Information:
+  ---------------------
+  Server name:ststor01
+  IP: 172.16.238.15
+  Hostname: ststor01.stratos.xfusioncorp.com
+  User: natasha
+  Password: Bl@kW
+  Purpose: Stork DC Storage Filer
+
+How to compress an entire directory:
+-------------------------------------
+$ tar -zcvf mariyam.tar.gz /path/to/dir/
+
+-z: Filter the archive through gzip
+-c: Create a new archive
+-v: Verbose output
+-f: mariyam.tar.gz <-- Use archive file
+
+How to extract contents to a directory:
+----------------------------------------
+$ tar -xzvf my.tar.gz -C /home/vivek/backups/
+
+Ref: https://www.cyberciti.biz/faq/how-to-tar-a-file-in-linux-using-command-line/
